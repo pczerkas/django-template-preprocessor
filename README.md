@@ -126,7 +126,7 @@ Configuration at runtime
 Following template tag is an example of how to alter the preprocessor
 behaviour for a specific template.
 
-```
+```django
 {% load template_preprocessor %}{% ! no-html %}
 ```
 
@@ -137,7 +137,7 @@ Precompile templates
 
 Run this command on your shell
 
-```
+```sh
 ./manage.py compile_templates -v 2
 ```
 
@@ -145,7 +145,7 @@ Or if you want to recompile *all* templates. (This is required when base
 templates change, because the preprocessor does not yet trace template
 dependecies when compiling only the changed templates.)
 
-```
+```sh
 ./manage.py compile_templates -v 2 --all
 ```
 
@@ -169,7 +169,7 @@ Additional recommendations
 * **Most important**: *always* open and close HTML tags, javascript braces, etc..
   in the same scope. Instead of:
 
-  ```
+  ```django
   {% if test %}
       <a ...
   {% else test %}
@@ -181,7 +181,7 @@ Additional recommendations
 
   do:
 
-  ```
+  ```django
   <a
   {% if test %}
        ...
@@ -195,8 +195,9 @@ Additional recommendations
   See? Opening bracket is now in the same text node as the closing bracket.
   This is important for the parser to know that they are a pair, because the
   HTML parser won't or can't be aware of how the Django Template tags are
-  rendered. What if the render() method of the ``{% if %}``-node would return
-  an empty string, then there's no pair to be found in the first example.
+  rendered. What if the `render()` method of the ``{% if %}``-node would
+  return an empty string, then there's no pair to be found in the first
+  example.
 
 
 
@@ -209,7 +210,7 @@ you can tell the compiler not to try interpreting this part of HTML
 
 Use the following template tags:
 
-```
+```django
 {% load template_preprocessor %}
 ...
 {% !raw %}
@@ -275,7 +276,7 @@ template and the rendered output.
 To be able to use the *open in editor* functionality, run the following server
 from the command line:
 
-```
+```sh
 ./manage.py open_in_editor_server
 ```
 
@@ -283,4 +284,4 @@ from the command line:
 More information?
 -----------------
 
-Read README_2 for more technical information.
+Read [README_2](https://github.com/citylive/django-template-preprocessor/blob/master/README_2) for more technical information.
