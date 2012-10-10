@@ -3,7 +3,7 @@ from setuptools import setup
 import os
 
 absolute_path = lambda x: os.path.join(os.path.dirname(__file__), x)
-readme_path = absolute_path(u'README.rst')
+readme_path = absolute_path(u'README.md')
 
 def parse_requirements(file_name):
     requirements = []
