@@ -15,10 +15,10 @@ The Token class is the base class for any node in the parse tree.
 """
 
 __author__ = 'Jonathan Slenders, City Live'
-__all__ = ('lex', 'Token')
+__all__ = ('Token', 'State', 'Push', 'Pop', 'Record', 'Shift', 'StartToken', 'StopToken', 'Error', )
 
 import re
-from itertools import chain, ifilter
+from itertools import chain
 
 
 class CompileException(Exception):
