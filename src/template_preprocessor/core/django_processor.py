@@ -859,12 +859,14 @@ def _group_all_loads(tree):
     """
     all_modules = set()
     first_load_tag = None
+    to_remove = []
 
     # Collect all {% load %} nodes.
     for load_tag in tree.child_nodes_of_class(DjangoLoadTag):
         # Keeps tags like {% load ssi from future %} as they are.
         # Concatenating these is invalid.
         if not ('from' in load_tag.output_as_string()  and 'future' in load_tag.output_as_string()):
+            to_remove.append(load_tag)
             # First tag
             if not first_load_tag:
                 first_load_tag = load_tag
@@ -872,8 +874,8 @@ def _group_all_loads(tree):
             for l in load_tag.modules:
                 all_modules.add(l)
 
-    # Remove all {% load %} nodes
-    tree.remove_child_nodes_of_class(DjangoLoadTag)
+    # Remove all {% load %} nodes except {% load ... from future %}
+    tree.remove_child_nodes(to_remove)
 
     # Place all {% load %} in the first node of the tree
     if first_load_tag:
