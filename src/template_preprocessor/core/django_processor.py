@@ -265,7 +265,11 @@ class DjangoIncludeTag(Token):
 
     def output(self, handler):
         if self.with_params:
-            handler('{%with '); map(handler, self.with_params); handler('%}')
+            handler('{%with')
+            for c in self.with_params:
+                handler(' ')
+                handler(c)
+            handler('%}')
 
         if self.template_name_is_variable:
             handler(u'{%include '); handler(self.template_name); handler(u'%}')
@@ -685,7 +689,11 @@ class DjangoPreprocessedInclude(DjangoContainer):
 
     def output(self, handler):
         if self.with_params:
-            handler('{%with '); map(handler, self.with_params); handler('%}')
+            handler('{%with')
+            for c in self.with_params:
+                handler(' ')
+                handler(c)
+            handler('%}')
 
         DjangoContainer.output(self, handler)
 
