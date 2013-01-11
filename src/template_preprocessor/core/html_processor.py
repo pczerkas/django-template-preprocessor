@@ -1284,13 +1284,13 @@ def _process_html_tree(tree, context):
         # Methods to execute before nesting everything
         _validate_html_tags(tree)
 
-        # TODO: following two checks are not necsesary in HTML5,
+        # TODO: following three checks are not necsesary in HTML5,
         #       -> create a HTML5 option instead.
         #_ensure_type_in_scripts(tree)
         #_ensure_type_in_css(tree)
+        #_ensure_href_in_hyperlinks(tree)
 
         _validate_html_attributes(tree)
-        _ensure_href_in_hyperlinks(tree)
         _ensure_alt_attribute(tree)
         # TODO: check for deprecated HTML tags also
 
