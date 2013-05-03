@@ -1,6 +1,8 @@
+import os
 import re
 from setuptools import setup
-import os
+from setuptools.command.test import test
+import sys
 
 absolute_path = lambda x: os.path.join(os.path.dirname(__file__), x)
 readme_path = absolute_path(u'README.md')
@@ -18,6 +20,27 @@ def parse_requirements(file_name):
             requirements.append(line)
 
     return requirements
+
+
+def run_tests(*args):
+    srcdir = os.path.abspath(os.path.join(os.path.dirname(__file__), 'src'))
+    sys.path.insert(0, os.path.join(srcdir, 'test_project'))
+    if not os.environ.get("DJANGO_SETTINGS_MODULE", False):
+        os.environ["DJANGO_SETTINGS_MODULE"] = "test_project.settings"
+
+    from django.conf import settings
+    from django.test.utils import get_runner
+
+    TestRunner = get_runner(settings)
+    test_suite = TestRunner(verbosity=2, interactive=True, failfast=False)
+    errors = test_suite.run_tests([])
+    if errors:
+        sys.exit(1)
+    else:
+        sys.exit(0)
+    
+test.run_tests = run_tests
+
 
 setup(
     name = "django-template-preprocessor",
@@ -46,5 +69,6 @@ setup(
         'Framework :: Django',
         'Topic :: Software Development :: Internationalization',
     ],
+    test_suite = 'dummy',
 )
 
