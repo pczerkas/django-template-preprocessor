@@ -1,3 +1,13 @@
+Notice:
+
+2013-05-18: This project is still doing well, but I'm going to completely rewrite the template parser to be more powerful, more compliant with Django, and faster. Further I'm going to decide what it should or shouldn't do. This means:
+
+- Don't do any javascript/css compression. There are other tools which are a lot better a these kind of things.
+- Leave template inheritance preprocessing to Django. My experience is that if there's a place to optimize it, it should be in Django itself. The same for template includes. (Support for dynamic inheritance will be possible as well.)
+- There are too many loops over the template three right now. Probably it can't be one-pass, but there's a lot of room for improvement. 
+- Support for validation of `<a {% if test %}>{%else %}>`. This won't be validated as valid HTML yet. Inspecting both branches should do the job.
+
+
 Django Template Preprocessor
 ===========================================================
 
