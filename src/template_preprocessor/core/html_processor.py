@@ -54,29 +54,33 @@ __HTML_ATTRIBUTES = {
 
         # HTML 5
         'itemscope', 'itemtype', 'itemprop', 'role',
+
+        # Event attributes
+        'onclick', 'ondblclick', 'onmousedown', 'onmousemove', 'onmouseout', 'onmouseover', 'onmouseup',
+        'onkeydown', 'onkeypress', 'onkeyup',
         ),
 
     # Attributes for specific HTML tags
 
-    'a': ('href', 'hreflang', 'media', 'type', 'target', 'rel', 'name', 'share_url'), # share_url is not valid, but used in the facebook share snipped.
+    'a': ('href', 'hreflang', 'media', 'type', 'target', 'rel', 'name', 'share_url', 'onblur', 'onfocus'), # share_url is not valid, but used in the facebook share snipped.
     'audio': ('autoplay', 'controls', 'loop', 'preload', 'src'),
     'canvas': ('height', 'width'),
     'font': ('face', 'size', ),
-    'form': ('action', 'method', 'enctype', 'name', ),
+    'form': ('action', 'method', 'enctype', 'name', 'onblur', 'onfocus', ),
     'html': ('xmlns', 'lang', 'dir', 'itemscope', 'itemtype',),
     'body': ('onLoad', ),
     'img': ('src', 'alt', 'height', 'width', ),
-    'input': ('type', 'name', 'value', 'maxlength', 'checked', 'disabled', 'src', 'size', 'readonly', 'autocomplete', 'placeholder' ),
-    'select': ('name', 'value', 'size', 'disabled', ),
-    'textarea': ('name', 'rows', 'cols', 'readonly', 'placeholder', ),
+    'input': ('type', 'name', 'value', 'maxlength', 'checked', 'disabled', 'src', 'size', 'readonly', 'autocomplete', 'placeholder', 'onblur', 'onfocus', 'onchange', 'onselect', ),
+    'select': ('name', 'value', 'size', 'disabled', 'onblur', 'onfocus', 'onchange', ),
+    'textarea': ('name', 'rows', 'cols', 'readonly', 'placeholder', 'onblur', 'onfocus', 'onchange', 'onselect', ),
     'link': ('type', 'rel', 'href', 'media', 'charset', 'sizes', ),
     'meta': ('content', 'http-equiv', 'name', 'property', 'charset', 'itemprop', ),
     'script': ('type', 'src', 'language', 'charset', ),
     'style': ('type', 'media', ),
     'td': ('colspan', 'rowspan', 'width', 'height', ),
     'th': ('colspan', 'rowspan', 'width', 'height', 'scope', ),
-    'button': ('value', 'type', 'name', ),
-    'label': ('for', ),
+    'button': ('value', 'type', 'name', 'onblur', 'onfocus', ),
+    'label': ('for', 'onblur', 'onfocus', ),
     'option': ('value', 'selected', ),
     'base': ('href', ),
     'object': ('data', 'type', 'width', 'height', 'quality', ),
