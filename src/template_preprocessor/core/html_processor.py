@@ -54,6 +54,12 @@ __HTML_ATTRIBUTES = {
 
         # HTML 5
         'itemscope', 'itemtype', 'itemprop', 'role',
+        
+        # ARIA support
+        # see: http://www.w3.org/TR/wai-aria/states_and_properties
+        'aria-atomic', 'aria-busy', 'aria-controls', 'aria-describedby', 'aria-disabled', 
+        'aria-dropeffect', 'aria-flowto', 'aria-grabbed', 'aria-haspopup', 'aria-hidden', 
+        'aria-invalid', 'aria-label', 'aria-labelledby', 'aria-live', 'aria-owns', 'aria-relevant',
 
         # Event attributes
         'onclick', 'ondblclick', 'onmousedown', 'onmousemove', 'onmouseout', 'onmouseover', 'onmouseup',
