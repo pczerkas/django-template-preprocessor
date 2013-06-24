@@ -1,4 +1,14 @@
-Notice:
+Notices:
+
+
+2013-06-24:
+Please, if you care about this project, and you know something of Django's
+internal code. Have a look at the following ticket. This will enable better
+integration of the template preprocessor. It would be great if we can merge
+this patch in Django 1.6 or 1.7.
+
+https://code.djangoproject.com/ticket/20434
+
 
 2013-05-18: This project is still doing well, but I'm going to completely rewrite the template parser to be more powerful, more compliant with Django, and faster. Further I'm going to decide what it should or shouldn't do. This means:
 
