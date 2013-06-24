@@ -44,7 +44,7 @@ test.run_tests = run_tests
 
 setup(
     name = "django-template-preprocessor",
-    version='1.2.29',
+    version='1.2.30',
     url = 'https://github.com/citylive/django-template-preprocessor',
     license = 'BSD',
     description = "Template preprocessor/compiler for Django",
