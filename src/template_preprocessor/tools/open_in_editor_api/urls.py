@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 
 from template_preprocessor.tools.open_in_editor_api.views import open_in_editor
